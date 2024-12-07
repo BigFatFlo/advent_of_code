@@ -1,4 +1,5 @@
 import { readFileSync } from "fs";
+import chalk from "chalk";
 
 const EXAMPLE = "../example.txt";
 const INPUT = "../input.txt";
@@ -30,7 +31,9 @@ function part_1(input_file_name: string): void {
   const [left, right] = get_lists(input_file_name);
   const distances = get_distances(left, right);
   const result = distances.reduce((acc, curr) => acc + curr, 0);
-  console.log(`Part 1 for ${input_file_name.split("/").pop()}: ${result}`);
+  console.log(
+    `Part 1 for ${input_file_name.split("/").pop()}: ${chalk.green(result)}`
+  );
 }
 
 part_1(EXAMPLE);
@@ -51,7 +54,9 @@ function part2(input_file_name: string): void {
   const [left, right] = get_lists(input_file_name);
   const similarities = get_similarities(left, right);
   const result = similarities.reduce((acc, curr) => acc + curr, 0);
-  console.log(`Part 2 for ${input_file_name.split("/").pop()}: ${result}`);
+  console.log(
+    `Part 2 for ${input_file_name.split("/").pop()}: ${chalk.green(result)}`
+  );
 }
 
 part2(EXAMPLE);

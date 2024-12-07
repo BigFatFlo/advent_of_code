@@ -1,4 +1,5 @@
 import { readFileSync } from "fs";
+import chalk from "chalk";
 
 const EXAMPLE = "../example.txt";
 const INPUT = "../input.txt";
@@ -72,7 +73,9 @@ function part_1(input_file_name: string): void {
     }
   }
   console.log(
-    `Part 1 for ${input_file_name.split("/").pop()}: ${safe_reports}`
+    `Part 1 for ${input_file_name.split("/").pop()}: ${chalk.green(
+      safe_reports
+    )}`
   );
 }
 
@@ -88,7 +91,9 @@ function part_2(input_file_name: string): void {
     }
   }
   console.log(
-    `Part 2 for ${input_file_name.split("/").pop()}: ${safe_reports}`
+    `Part 2 for ${input_file_name.split("/").pop()}: ${chalk.green(
+      safe_reports
+    )}`
   );
 }
 
