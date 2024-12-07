@@ -63,9 +63,6 @@ function get_reports(input_file_name: string): Report[] {
   return reports;
 }
 
-const reports: Report[] = get_reports(EXAMPLE);
-console.log(reports);
-
 function part_1(input_file_name: string): void {
   const reports: Report[] = get_reports(input_file_name);
   let safe_reports: number = 0;
