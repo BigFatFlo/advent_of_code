@@ -7,7 +7,7 @@ const INPUT = "../input.txt";
 class Report {
   constructor(private levels: number[]) {}
 
-  is_safe(): boolean {
+  isSafe(): boolean {
     if (this.levels[1] === this.levels[0]) {
       return false;
     }
@@ -24,26 +24,26 @@ class Report {
     return true;
   }
 
-  remove_one_level(): Report[] {
-    const alternative_reports: Report[] = [];
+  removeOneLevel(): Report[] {
+    const alternativeReports: Report[] = [];
     for (let i = 0; i < this.levels.length; i++) {
-      const new_levels: number[] = [];
+      const newLevels: number[] = [];
       for (let j = 0; j < this.levels.length; j++) {
         if (j !== i) {
-          new_levels.push(this.levels[j]);
+          newLevels.push(this.levels[j]);
         }
       }
-      alternative_reports.push(new Report(new_levels));
+      alternativeReports.push(new Report(newLevels));
     }
-    return alternative_reports;
+    return alternativeReports;
   }
 
-  can_be_safe(): boolean {
-    if (this.is_safe()) {
+  canBeSafe(): boolean {
+    if (this.isSafe()) {
       return true;
     }
-    for (const alternative_report of this.remove_one_level()) {
-      if (alternative_report.is_safe()) {
+    for (const alternativeReport of this.removeOneLevel()) {
+      if (alternativeReport.isSafe()) {
         return true;
       }
     }
@@ -51,8 +51,8 @@ class Report {
   }
 }
 
-function get_reports(input_file_name: string): Report[] {
-  const fileContent = readFileSync(input_file_name, "utf-8");
+function getReports(inputFileName: string): Report[] {
+  const fileContent = readFileSync(inputFileName, "utf-8");
   const lines = fileContent.trim().split("\n");
   const reports: Report[] = [];
 
@@ -64,38 +64,34 @@ function get_reports(input_file_name: string): Report[] {
   return reports;
 }
 
-function part_1(input_file_name: string): void {
-  const reports: Report[] = get_reports(input_file_name);
-  let safe_reports: number = 0;
+function part1(inputFileName: string): void {
+  const reports: Report[] = getReports(inputFileName);
+  let safeReports: number = 0;
   for (const report of reports) {
-    if (report.is_safe()) {
-      safe_reports += 1;
+    if (report.isSafe()) {
+      safeReports += 1;
     }
   }
   console.log(
-    `Part 1 for ${input_file_name.split("/").pop()}: ${chalk.green(
-      safe_reports
-    )}`
+    `Part 1 for ${inputFileName.split("/").pop()}: ${chalk.green(safeReports)}`
   );
 }
 
-part_1(EXAMPLE);
-part_1(INPUT);
+part1(EXAMPLE);
+part1(INPUT);
 
-function part_2(input_file_name: string): void {
-  const reports: Report[] = get_reports(input_file_name);
-  let safe_reports: number = 0;
+function part2(inputFileName: string): void {
+  const reports: Report[] = getReports(inputFileName);
+  let safeReports: number = 0;
   for (const report of reports) {
-    if (report.can_be_safe()) {
-      safe_reports += 1;
+    if (report.canBeSafe()) {
+      safeReports += 1;
     }
   }
   console.log(
-    `Part 2 for ${input_file_name.split("/").pop()}: ${chalk.green(
-      safe_reports
-    )}`
+    `Part 2 for ${inputFileName.split("/").pop()}: ${chalk.green(safeReports)}`
   );
 }
 
-part_2(EXAMPLE);
-part_2(INPUT);
+part2(EXAMPLE);
+part2(INPUT);

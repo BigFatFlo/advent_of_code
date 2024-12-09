@@ -4,11 +4,11 @@ import chalk from "chalk";
 const EXAMPLE = "../example.txt";
 const INPUT = "../input.txt";
 
-function get_lists(input_file_name: string): [number[], number[]] {
+function getLists(inputFileName: string): [number[], number[]] {
   const left: number[] = [];
   const right: number[] = [];
 
-  const fileContent = readFileSync(input_file_name, "utf-8");
+  const fileContent = readFileSync(inputFileName, "utf-8");
   const lines = fileContent.trim().split("\n");
 
   for (const line of lines) {
@@ -20,26 +20,26 @@ function get_lists(input_file_name: string): [number[], number[]] {
   return [left, right];
 }
 
-function get_distances(left: number[], right: number[]): number[] {
+function getDistances(left: number[], right: number[]): number[] {
   left.sort((a, b) => a - b);
   right.sort((a, b) => a - b);
 
   return left.map((l, i) => Math.abs(l - right[i]));
 }
 
-function part_1(input_file_name: string): void {
-  const [left, right] = get_lists(input_file_name);
-  const distances = get_distances(left, right);
+function part1(inputFileName: string): void {
+  const [left, right] = getLists(inputFileName);
+  const distances = getDistances(left, right);
   const result = distances.reduce((acc, curr) => acc + curr, 0);
   console.log(
-    `Part 1 for ${input_file_name.split("/").pop()}: ${chalk.green(result)}`
+    `Part 1 for ${inputFileName.split("/").pop()}: ${chalk.green(result)}`
   );
 }
 
-part_1(EXAMPLE);
-part_1(INPUT);
+part1(EXAMPLE);
+part1(INPUT);
 
-function get_similarities(left: number[], right: number[]): number[] {
+function getSimilarities(left: number[], right: number[]): number[] {
   const similarities: number[] = [];
 
   for (const e of left) {
@@ -50,12 +50,12 @@ function get_similarities(left: number[], right: number[]): number[] {
   return similarities;
 }
 
-function part2(input_file_name: string): void {
-  const [left, right] = get_lists(input_file_name);
-  const similarities = get_similarities(left, right);
+function part2(inputFileName: string): void {
+  const [left, right] = getLists(inputFileName);
+  const similarities = getSimilarities(left, right);
   const result = similarities.reduce((acc, curr) => acc + curr, 0);
   console.log(
-    `Part 2 for ${input_file_name.split("/").pop()}: ${chalk.green(result)}`
+    `Part 2 for ${inputFileName.split("/").pop()}: ${chalk.green(result)}`
   );
 }
 

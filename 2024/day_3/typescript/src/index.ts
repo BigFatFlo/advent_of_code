@@ -46,18 +46,18 @@ class Program {
   }
 
   computeValidSubsections() {
-    let valid_subsections: string[] = [];
-    let split_at_dont = this._program.section.split("don't()");
+    let validSubsections: string[] = [];
+    let splitAtDont = this._program.section.split("don't()");
     // The first one is before the first "don't()" so it is valid
-    valid_subsections.push(split_at_dont[0]);
-    split_at_dont = split_at_dont.slice(1);
-    for (const s of split_at_dont) {
+    validSubsections.push(splitAtDont[0]);
+    splitAtDont = splitAtDont.slice(1);
+    for (const s of splitAtDont) {
       // For the next ones, only the parts after the first "do()" are valid
-      let split_s_do = s.split("do()");
-      split_s_do = split_s_do.slice(1);
-      valid_subsections.push(...split_s_do);
+      let splitSDo = s.split("do()");
+      splitSDo = splitSDo.slice(1);
+      validSubsections.push(...splitSDo);
     }
-    this._validSubsections = valid_subsections.map(
+    this._validSubsections = validSubsections.map(
       (section) => new Section(section)
     );
   }
@@ -76,26 +76,26 @@ class Program {
   }
 }
 
-function parseInputFile(input_file_name: string): Program {
-  const fileContent = readFileSync(input_file_name, "utf-8");
+function parseInputFile(inputFileName: string): Program {
+  const fileContent = readFileSync(inputFileName, "utf-8");
   const lines = fileContent.trim().split("\n");
   const program = lines.join("");
   return new Program(program);
 }
 
-function part1(input_file_name: string): void {
-  const program = parseInputFile(input_file_name);
+function part1(inputFileName: string): void {
+  const program = parseInputFile(inputFileName);
   const result = program.getProgramTotal();
   console.log(
-    `Part 1 for ${input_file_name.split("/").pop()}: ${chalk.green(result)}`
+    `Part 1 for ${inputFileName.split("/").pop()}: ${chalk.green(result)}`
   );
 }
 
-function part2(input_file_name: string): void {
-  const program = parseInputFile(input_file_name);
+function part2(inputFileName: string): void {
+  const program = parseInputFile(inputFileName);
   const result = program.getValidSubsectionsTotal();
   console.log(
-    `Part 2 for ${input_file_name.split("/").pop()}: ${chalk.green(result)}`
+    `Part 2 for ${inputFileName.split("/").pop()}: ${chalk.green(result)}`
   );
 }
 
