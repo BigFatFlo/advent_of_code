@@ -65,6 +65,7 @@ function getReports(inputFileName: string): Report[] {
 }
 
 function part1(inputFileName: string): void {
+  console.time(`Part 1 for ${inputFileName}`);
   const reports: Report[] = getReports(inputFileName);
   let safeReports: number = 0;
   for (const report of reports) {
@@ -75,12 +76,14 @@ function part1(inputFileName: string): void {
   console.log(
     `Part 1 for ${inputFileName.split("/").pop()}: ${chalk.green(safeReports)}`
   );
+  console.timeEnd(`Part 1 for ${inputFileName}`);
 }
 
 part1(EXAMPLE);
 part1(INPUT);
 
 function part2(inputFileName: string): void {
+  console.time(`Part 2 for ${inputFileName}`);
   const reports: Report[] = getReports(inputFileName);
   let safeReports: number = 0;
   for (const report of reports) {
@@ -91,6 +94,7 @@ function part2(inputFileName: string): void {
   console.log(
     `Part 2 for ${inputFileName.split("/").pop()}: ${chalk.green(safeReports)}`
   );
+  console.timeEnd(`Part 2 for ${inputFileName}`);
 }
 
 part2(EXAMPLE);

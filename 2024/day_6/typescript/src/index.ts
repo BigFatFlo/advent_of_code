@@ -275,19 +275,23 @@ class Matrix {
 }
 
 function part1(inputFileName: string) {
+  console.time(`Part 1 for ${inputFileName}`);
   const matrix = new Matrix(inputFileName);
   const result = matrix.nbOfVisitedPositions();
   console.log(
     `Part 1 for ${inputFileName.split("/").pop()}: ${chalk.green(result)}`
   );
+  console.timeEnd(`Part 1 for ${inputFileName}`);
 }
 
 function part2(inputFileName: string) {
+  console.time(`Part 2 for ${inputFileName}`);
   const matrix = new Matrix(inputFileName);
   const result = matrix.nbOfLoopsPossible();
   console.log(
     `Part 2 for ${inputFileName.split("/").pop()}: ${chalk.green(result)}`
   );
+  console.timeEnd(`Part 2 for ${inputFileName}`);
 }
 
 part1(EXAMPLE);

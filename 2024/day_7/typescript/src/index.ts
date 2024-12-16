@@ -88,7 +88,7 @@ function part2(inputFileName: string) {
   const equationList = new EquationList(inputFileName);
   const operators = ["+", "*", "||"];
   const result = equationList.calculateResult(operators);
-  console.log(`Part 1 for ${inputFileName}: ${chalk.green(result)}`);
+  console.log(`Part 2 for ${inputFileName}: ${chalk.green(result)}`);
   console.timeEnd(`Part 2 for ${inputFileName}`);
 }
 
