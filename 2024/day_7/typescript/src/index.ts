@@ -75,21 +75,21 @@ function isTargetReachable(
 }
 
 function part1(inputFileName: string) {
-  console.time(`Part 1 for ${inputFileName}`);
+  console.time(`Part 1 for ${inputFileName.split("/").pop()}`);
   const equationList = new EquationList(inputFileName);
   const operators = ["+", "*"];
   const result = equationList.calculateResult(operators);
   console.log(`Part 1 for ${inputFileName}: ${chalk.green(result)}`);
-  console.timeEnd(`Part 1 for ${inputFileName}`);
+  console.timeEnd(`Part 1 for ${inputFileName.split("/").pop()}`);
 }
 
 function part2(inputFileName: string) {
-  console.time(`Part 2 for ${inputFileName}`);
+  console.time(`Part 2 for ${inputFileName.split("/").pop()}`);
   const equationList = new EquationList(inputFileName);
   const operators = ["+", "*", "||"];
   const result = equationList.calculateResult(operators);
   console.log(`Part 2 for ${inputFileName}: ${chalk.green(result)}`);
-  console.timeEnd(`Part 2 for ${inputFileName}`);
+  console.timeEnd(`Part 2 for ${inputFileName.split("/").pop()}`);
 }
 
 part1(EXAMPLE);

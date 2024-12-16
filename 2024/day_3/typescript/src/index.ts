@@ -84,23 +84,23 @@ function parseInputFile(inputFileName: string): Program {
 }
 
 function part1(inputFileName: string): void {
-  console.time(`Part 1 for ${inputFileName}`);
+  console.time(`Part 1 for ${inputFileName.split("/").pop()}`);
   const program = parseInputFile(inputFileName);
   const result = program.getProgramTotal();
   console.log(
     `Part 1 for ${inputFileName.split("/").pop()}: ${chalk.green(result)}`
   );
-  console.timeEnd(`Part 1 for ${inputFileName}`);
+  console.timeEnd(`Part 1 for ${inputFileName.split("/").pop()}`);
 }
 
 function part2(inputFileName: string): void {
-  console.time(`Part 2 for ${inputFileName}`);
+  console.time(`Part 2 for ${inputFileName.split("/").pop()}`);
   const program = parseInputFile(inputFileName);
   const result = program.getValidSubsectionsTotal();
   console.log(
     `Part 2 for ${inputFileName.split("/").pop()}: ${chalk.green(result)}`
   );
-  console.timeEnd(`Part 2 for ${inputFileName}`);
+  console.timeEnd(`Part 2 for ${inputFileName.split("/").pop()}`);
 }
 
 part1(EXAMPLE_1);

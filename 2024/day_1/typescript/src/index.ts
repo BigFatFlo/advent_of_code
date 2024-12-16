@@ -28,14 +28,14 @@ function getDistances(left: number[], right: number[]): number[] {
 }
 
 function part1(inputFileName: string): void {
-  console.time(`Part 1 for ${inputFileName}`);
+  console.time(`Part 1 for ${inputFileName.split("/").pop()}`);
   const [left, right] = getLists(inputFileName);
   const distances = getDistances(left, right);
   const result = distances.reduce((acc, curr) => acc + curr, 0);
   console.log(
     `Part 1 for ${inputFileName.split("/").pop()}: ${chalk.green(result)}`
   );
-  console.timeEnd(`Part 1 for ${inputFileName}`);
+  console.timeEnd(`Part 1 for ${inputFileName.split("/").pop()}`);
 }
 
 part1(EXAMPLE);
@@ -53,14 +53,14 @@ function getSimilarities(left: number[], right: number[]): number[] {
 }
 
 function part2(inputFileName: string): void {
-  console.time(`Part 2 for ${inputFileName}`);
+  console.time(`Part 2 for ${inputFileName.split("/").pop()}`);
   const [left, right] = getLists(inputFileName);
   const similarities = getSimilarities(left, right);
   const result = similarities.reduce((acc, curr) => acc + curr, 0);
   console.log(
     `Part 2 for ${inputFileName.split("/").pop()}: ${chalk.green(result)}`
   );
-  console.timeEnd(`Part 2 for ${inputFileName}`);
+  console.timeEnd(`Part 2 for ${inputFileName.split("/").pop()}`);
 }
 
 part2(EXAMPLE);
